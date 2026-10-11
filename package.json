@@ -1,0 +1,43 @@
+{
+  "name": "@red-cup-engineering/multihash-address-service",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Creates, reads, and verifies base32 presentations of SHA-2 multihash byte commitments.",
+  "license": "Apache-2.0",
+  "exports": {
+    "./create-multihash": {
+      "types": "./scripts/create-multihash.d.mts",
+      "import": "./scripts/create-multihash.mjs"
+    },
+    "./read-multihash": {
+      "types": "./scripts/read-multihash.d.mts",
+      "import": "./scripts/read-multihash.mjs"
+    },
+    "./verify-multihash": {
+      "types": "./scripts/verify-multihash.d.mts",
+      "import": "./scripts/verify-multihash.mjs"
+    },
+    "./address": "./src/multihash-address.mjs"
+  },
+  "bin": {
+    "create-multihash": "./scripts/create-multihash.mjs",
+    "read-multihash": "./scripts/read-multihash.mjs",
+    "verify-multihash": "./scripts/verify-multihash.mjs"
+  },
+  "files": [
+    "README.md",
+    "content",
+    "scripts",
+    "src"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "multiformats": "14.0.5"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

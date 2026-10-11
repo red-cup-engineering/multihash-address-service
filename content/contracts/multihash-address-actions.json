@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:red-cup-engineering:multihash-address-actions:0.1.0",
+  "title": "Multihash address action algebra",
+  "carrier": {
+    "byteString": "An exact finite Uint8Array, represented at the JSON boundary by canonical unpadded base64url.",
+    "commitment": "A multihash binary value containing a hash algorithm code, digest length, and digest bytes.",
+    "presentation": "The commitment bytes encoded as canonical lower-case base32 with its multibase prefix."
+  },
+  "operations": {
+    "create-multihash": {
+      "precondition": "bytes is admitted as an exact byte string and algorithm is sha2-256 or sha2-512",
+      "postcondition": "returns the unique canonical base32 presentation produced by the selected hasher for those bytes",
+      "effects": []
+    },
+    "read-multihash": {
+      "precondition": "address is one canonical base32 presentation of one supported complete multihash",
+      "postcondition": "returns its algorithm, digest, binary carrier, and unchanged canonical presentation",
+      "effects": []
+    },
+    "verify-multihash": {
+      "precondition": "bytes is admitted and address satisfies read-multihash",
+      "postcondition": "matches is true exactly when creating under the address algorithm yields that address",
+      "effects": []
+    }
+  },
+  "laws": [
+    "read(create(bytes).address) = create(bytes)",
+    "verify(bytes, create(bytes).address).matches = true",
+    "create(bytes) is deterministic for a fixed algorithm",
+    "read(address).address = address",
+    "read refuses alternate or noncanonical textual and binary presentations"
+  ],
+  "nonClaims": [
+    "A multihash does not identify a content codec, semantic referent, owner, authority, location, or storage provider.",
+    "Matching commitments do not prove provenance or authorization.",
+    "Cryptographic injectivity is an assumption, not a law proved by this service."
+  ]
+}
