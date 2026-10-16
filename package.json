@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/multihash-address-service",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Creates, reads, and verifies base32 presentations of SHA-2 multihash byte commitments.",
   "license": "Apache-2.0",
