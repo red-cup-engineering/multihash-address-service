@@ -3,6 +3,11 @@
   "version": "0.1.2",
   "type": "module",
   "description": "Creates, reads, and verifies base32 presentations of SHA-2 multihash byte commitments.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-content-address-engineering-services-section.git",
+    "directory": "services/multiformats-services-section/services/multihash-services-section/services/multihash-address-service"
+  },
   "license": "Apache-2.0",
   "exports": {
     "./create-multihash": {
