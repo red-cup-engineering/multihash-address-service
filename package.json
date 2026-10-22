@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/red-cup-engineering/multihash-address-service.git"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "exports": {
     "./create-multihash": {
       "types": "./scripts/create-multihash.d.mts",
@@ -44,5 +44,9 @@
   "engines": {
     "node": ">=22"
   },
-  "private": false
+  "private": false,
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
+  }
 }
